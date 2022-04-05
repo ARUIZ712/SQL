@@ -1,0 +1,28 @@
+CREATE TABLE clothing (id INTEGER PRIMARY KEY, name TEXT, quantity INTEGER, material TEXT, price INTEGER, sold INTEGER);
+INSERT INTO clothing VALUES (1, "T-Shirt", 25,"Cotton", 16, 5);
+INSERT INTO clothing VALUES (2, "Blouse", 20, "Silk", 30, 7) ;
+INSERT INTO clothing VALUES (3, "Sweater", 30, "Wool", 30, 3);
+INSERT INTO clothing VALUES (4, "Jacket", 20, "Fleece", 50,10);
+INSERT INTO clothing VALUES (5, "Trousers", 20, "Linen", 20, 7);
+INSERT INTO clothing VALUES (6, "Jeans", 25, "cotton twill", 35, 15);
+INSERT INTO clothing VALUES (7, "Shorts", 15, "cotton twill", 20, 7);
+INSERT INTO clothing VALUES (8, "Leggings", 30, "Spandex", 15, 12);
+INSERT INTO clothing VALUES (9, "Cardigan", 25, "Wool", 20, 8);
+INSERT INTO clothing VALUES (10, "Crop Top",12, "Cotton", 10, 4);
+INSERT INTO clothing VALUES (11, "Sweat Pants", 30, "Fleece", 30, 10);
+INSERT INTO clothing VALUES (12, "Hoodie", 30, "Fleece", 30, 20);
+INSERT INTO clothing VALUES (13, "Sweat Shorts", 30, "Fleece", 20, 14);
+INSERT INTO clothing VALUES (14, "Sports Bra", 30, "Spandex", 40, 9);
+INSERT INTO clothing VALUES (15, "Boxers", 15, "Cotton", 5, 5);
+
+SELECT * FROM clothing;
+
+SELECT * FROM clothing ORDER BY (price); 
+
+SELECT * FROM clothing WHERE sold < 10 AND quantity > 20; 
+
+SELECT name , sold FROM clothing WHERE sold > 10; 
+
+SELECT * FROM clothing WHERE material NOT IN ("Wool", "cotton twill");
+
+
