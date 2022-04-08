@@ -1,0 +1,67 @@
+/* Create table about the people and what they do here */
+CREATE TABLE famous_people (id INTEGER PRIMARY KEY AUTOINCREMENT, fullname TEXT, age INTEGER, agency TEXT); 
+
+INSERT INTO famous_people (fullname, age, agency) VALUES ( "Will Smith", 46, "NYC Scouts"); 
+INSERT INTO famous_people (fullname, age, agency) VALUES ( "Chris Rock", 42, "Studio Talent"); 
+INSERT INTO famous_people (fullname, age, agency) VALUES ("Angelina Jolie", 34, "NYC Scouts"); 
+INSERT INTO famous_people (fullname, age, agency) VALUES ("Halle Berry", 37, "Valued Talent"); 
+INSERT INTO famous_people (fullname, age, agency) VALUES ("Morgan Freeman", 84, "Studio Talent");
+INSERT INTO famous_people (fullname, age, agency) VALUES ("Sandra Bullock", 53, "Studio Talent"); 
+INSERT INTO famous_people (fullname, age, agency) VALUES ("Emma Stone", 33, "Valued Talent");
+INSERT INTO famous_people (fullname, age, agency) VALUES ("Eddie Murphy", 50, "Studio Talent") ;
+INSERT INTO famous_people (fullname, age, agency) VALUES ("Angela Bassett", 54, "NYC Scouts"); 
+INSERT INTO famous_people (fullname, age, agency) VALUES ("Denzel Washington", 67, "NYC Scouts"); 
+
+
+CREATE TABLE movies (id INTEGER PRIMARY KEY AUTOINCREMENT, actor_id INTEGER, movie_title TEXT, movie_genre TEXT); 
+
+INSERT INTO movies (actor_id, movie_title, movie_genre) VALUES (1, "Forever NYC", "Drama"); 
+INSERT INTO movies (actor_id, movie_title, movie_genre) VALUES (1, "Born Into Chaos", "Comedy"); 
+INSERT INTO movies (actor_id, movie_title, movie_genre) VALUES (2, "Born Into Chaos", "Comedy"); 
+INSERT INTO movies (actor_id, movie_title, movie_genre) VALUES (2, "Jungle Fever", "Comedy"); 
+INSERT INTO movies (actor_id, movie_title, movie_genre)
+VALUES (3, "Jump Into The Future", "Action"); 
+INSERT INTO movies (actor_id, movie_title, movie_genre)
+VALUES (3, "Battle Scars", "Action"); 
+INSERT INTO movies (actor_id, movie_title, movie_genre) VALUES (4, "Forever NYC", "Drama"); 
+INSERT INTO movies (actor_id, movie_title, movie_genre) VALUES (4, "Battle Scars", "Action"); 
+INSERT INTO movies (actor_id, movie_title, movie_genre) VALUES (5, "Forever NYC", "Drama"); 
+INSERT INTO movies (actor_id, movie_title, movie_genre) VALUES (5, "Road To Paradise", "Drama"); 
+INSERT INTO movies (actor_id, movie_title, movie_genre) VALUES (6, "Figured Wrong", "Comedy"); 
+INSERT INTO movies (actor_id, movie_title, movie_genre) VALUES (6, "Born Into Chaos", "Comedy"); 
+INSERT INTO movies (actor_id, movie_title, movie_genre) VALUES (7, "Road To Paradise", "Drama"); 
+INSERT INTO movies (actor_id, movie_title, movie_genre)
+VALUES (8, "Jungle Fever", "Comedy"); 
+INSERT INTO movies (actor_id, movie_title, movie_genre) VALUES (8, "Figured Wrong", "Comedy"); 
+INSERT INTO movies (actor_id, movie_title, movie_genre) VALUES (8, "Born Into Chaos", "Comedy"); 
+INSERT INTO movies (actor_id, movie_title, movie_genre) VALUES (9, "Road To Paradise", "Drama"); 
+INSERT INTO movies ( actor_id, movie_title, movie_genre) VALUES (10, "Freedom Fighters", "Drama"); 
+INSERT INTO movies (actor_id, movie_title, movie_genre) VALUES (10, "Forever NYC", "Drama"); 
+INSERT INTO movies (actor_id, movie_title, movie_genre) VALUES (10, "Battle Scars", "Action"); 
+
+
+SELECT a.fullname, b.movie_title
+FROM movies b
+JOIN famous_people  a 
+ON a.id = b.actor_id; 
+
+SELECT a.fullname, b.movie_genre, b.movie_title
+FROM movies b 
+JOIN famous_people a 
+ON a.id = b.actor_id
+WHERE b.movie_genre = "Action"; 
+
+SELECT a.agency, COUNT(distinct b.movie_title) AS total_movies
+FROM famous_people a 
+JOIN movies b
+ON a.id = b.actor_id
+GROUP BY agency; 
+
+SELECT a.fullname, COUNT(b.movie_title) AS movie_total
+FROM famous_people a
+JOIN movies b 
+ON a.id = b.actor_id
+GROUP BY fullname
+ORDER BY movie_total asc; 
+
+
