@@ -61,7 +61,7 @@ WHERE location like '%NY%'
 AND quantity >1
 
 #10. How many of each type of headphone were sold in February?
-SELECT SUM(quantity) as quantity
+SELECT SUM(quantity) as quantity, product
 FROM BIT_DB.FebSales
 WHERE product like '%Headphone%'
 GROUP BY product
